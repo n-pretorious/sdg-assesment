@@ -1,6 +1,6 @@
 const covid19ImpactEstimator = (data) => {
   const input = data;
-  const { timeToElapse, reportedCases } = input;
+  const { reportedCases, timeToElapse } = input;
 
   const totalDays = timeToElapse;
   const totalWeeks = Math.trunc(totalDays / 7);
