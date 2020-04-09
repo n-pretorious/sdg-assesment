@@ -11,16 +11,16 @@ const covid19ImpactEstimator = (data) => {
   return {
     data,
     impact: {
-      days: currentlyInfected * Math.pow(2, Math.trunc(totalDays / 3)),
-      weeks: currentlyInfected * (Math.pow(2, Math.trunc(7 / 3)) * totalWeeks),
-      months: currentlyInfected * (Math.pow(2, 10) * totalMonths)
+      days: currentlyInfected * (2 ** Math.trunc(totalDays / 3)),
+      weeks: currentlyInfected * ((2 ** Math.trunc(7 / 3)) * totalWeeks),
+      months: currentlyInfected * ((2 ** 10) * totalMonths)
     },
     severeImpact: {
-      days: severeImpact * Math.pow(2, (totalDays / 3)),
-      weeks: severeImpact * (Math.pow(2, Math.trunc(7 / 3)) * totalWeeks),
-      months: severeImpact * (Math.pow(2, 10) * totalMonths)
+      days: severeImpact * (2 ** (totalDays / 3)),
+      weeks: severeImpact * ((2 ** Math.trunc(7 / 3)) * totalWeeks),
+      months: severeImpact * ((2 ** 10) * totalMonths)
     }
-  }
+  };
 };
 
 export default covid19ImpactEstimator;
