@@ -6,7 +6,7 @@ const covid19ImpactEstimator = (data) => {
   const severeImpact = reportedCases * 50;
 
   const totalRoundInOneWeek = (2 ** Math.trunc(7 / 3));
-  const totalRoundInOneWeek = (2 ** 10);
+  const totalRoundInOneMonth = (2 ** 10);
 
   const totalNoOfDays = Math.trunc(timeToElapse / 3);
   const totalNoOfWeeks = Math.trunc(timeToElapse / 30);
@@ -16,11 +16,11 @@ const covid19ImpactEstimator = (data) => {
     data,
     impact: {
       currentlyInfected,
-      infectionsByRequestedTime: currentlyInfected * (2 ** totalNoOfDays) || currentlyInfected * (totalRoundInOneWeek * totalNoOfWeeks) || currentlyInfected * (totalRoundInOneWeek * totalNoOfMonths)
+      infectionsByRequestedTime: currentlyInfected * (2 ** totalNoOfDays) || currentlyInfected * (totalRoundInOneWeek * totalNoOfWeeks) || currentlyInfected * (totalRoundInOneMonth * totalNoOfMonths)
     },
     severeImpact: {
       currentlyInfected: severeImpact,
-      infectionsByRequestedTime: severeImpact * (2 ** totalNoOfDays) || severeImpact * (totalRoundInOneWeek * totalNoOfWeeks) || severeImpact * (totalRoundInOneWeek * totalNoOfMonths)
+      infectionsByRequestedTime: severeImpact * (2 ** totalNoOfDays) || severeImpact * (totalRoundInOneWeek * totalNoOfWeeks) || severeImpact * (totalRoundInOneMonth * totalNoOfMonths)
     }
   };
 };
