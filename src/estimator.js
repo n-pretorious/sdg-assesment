@@ -10,7 +10,7 @@ const covid19ImpactEstimator = (data) => {
 
   const totalDays = Math.trunc(timeToElapse / 3);
   const totalWeeks = Math.trunc(timeToElapse / 30);
-  // const totalMonths = Math.trunc(timeToElapse / 30);
+  const totalMonths = Math.trunc(timeToElapse / 30);
 
   return {
     data,
