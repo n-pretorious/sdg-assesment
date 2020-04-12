@@ -12,15 +12,18 @@ const covid19ImpactEstimator = (data) => {
   const totalWeeks = Math.trunc(timeToElapse / 30);
   const totalMonths = Math.trunc(timeToElapse / 30);
 
+  const infectionsByRequestedTimeImpact = curInfected * (2 ** totalDays) || curInfected * (oneWeek * totalWeeks) || curInfected * (oneMonth * totalMonths);
+  const infectionsByRequestedTimeServerImpact = sevImpact * (2 ** totalDays) || sevImpact * (oneWeek * totalWeeks) || sevImpact * (oneMonth * totalMonths);
+
   return {
     data,
     impact: {
-      currentlyInfected,
-      infectionsByRequestedTime: curInfected * (2 ** totalDays) || curInfected * (oneWeek * totalWeeks) || curInfected * (oneMonth * totalMonths)
+      currentlyInfected: curInfected,
+      infectionsByRequestedTime: infectionsByRequestedTimeImpact
     },
     severeImpact: {
-      currentlyInfected: severeImpact,
-      infectionsByRequestedTime: sevImpact * (2 ** totalDays) || sevImpact * (oneWeek * totalWeeks) || sevImpact * (oneMonth * totalMonths)
+      currentlyInfected: sevImpact,
+      infectionsByRequestedTime: infectionsByRequestedTimeServerImpact
     }
   };
 };
