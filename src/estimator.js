@@ -15,7 +15,7 @@ const covid19ImpactEstimator = (data) => {
     infectionsByRequestedTimeServerImpact = severeImpact * (2 ** totalDays);
   } else if (periodType === 'weeks') {
     const oneWeek = (2 ** Math.trunc(7 / 3));
-    const totalWeeks = Math.trunc(timeToElapse / 30);
+    const totalWeeks = Math.trunc(timeToElapse / 7);
 
     infectionsByRequestedTimeImpact = currentlyInfected * (oneWeek * totalWeeks);
     infectionsByRequestedTimeServerImpact = severeImpact * (oneWeek * totalWeeks);
