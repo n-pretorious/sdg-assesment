@@ -12,16 +12,16 @@ const covid19ImpactEstimator = (data) => {
   const totalWeeks = Math.trunc(timeToElapse / 30);
   const totalMonths = Math.trunc(timeToElapse / 30);
 
-  const currentRequestedDay = currentlyInfected * (2 ** totalDays);
-  const currentRequestedWeek = currentlyInfected * (oneWeek * totalWeeks);
-  const currentRequestedMonth = currentlyInfected * (oneMonth * totalMonths);
+  const currentDay = currentlyInfected * (2 ** totalDays);
+  const currentWeek = currentlyInfected * (oneWeek * totalWeeks);
+  const currentMonth = currentlyInfected * (oneMonth * totalMonths);
 
-  const severeRequestedDay = severeImpact * (2 ** totalDays);
-  const severRequestedWeek = severeImpact * (oneWeek * totalWeeks);
-  const severRequestedMonth = severeImpact * (oneMonth * totalMonths);
+  const severeDay = severeImpact * (2 ** totalDays);
+  const severWeek = severeImpact * (oneWeek * totalWeeks);
+  const severMonth = severeImpact * (oneMonth * totalMonths);
 
-  const infectionsByRequestedTimeImpact = currentRequestedDay || currentRequestedWeek || currentRequestedMonth;
-  const infectionsByRequestedTimeServerImpact = severeRequestedDay || severRequestedWeek || severRequestedMonth;
+  const infectionsByRequestedTimeImpact = currentDay || currentWeek || currentMonth;
+  const infectionsByRequestedTimeServerImpact = severeDay || severWeek || severMonth;
 
   return {
     data,
