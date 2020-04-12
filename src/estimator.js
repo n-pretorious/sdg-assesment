@@ -1,6 +1,5 @@
 const covid19ImpactEstimator = (data) => {
-  const input = data;
-  const { reportedCases, periodType, timeToElapse } = input;
+  const { reportedCases, periodType, timeToElapse } = data;
 
   const currentlyInfected = reportedCases * 10;
   const severeImpact = reportedCases * 50;
@@ -19,12 +18,14 @@ const covid19ImpactEstimator = (data) => {
 
     infectionsByRequestedTimeImpact = currentlyInfected * (oneWeek * totalWeeks);
     infectionsByRequestedTimeServerImpact = severeImpact * (oneWeek * totalWeeks);
-  } else {
+  } else if (periodType === 'months'){
     const oneMonth = (2 ** 10);
     const totalMonths = Math.trunc(timeToElapse / 30);
 
     infectionsByRequestedTimeImpact = currentlyInfected * (oneMonth * totalMonths);
     infectionsByRequestedTimeServerImpact = severeImpact * (oneMonth * totalMonths);
+  } else {
+    return null;
   }
 
   return {
