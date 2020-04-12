@@ -5,8 +5,7 @@ const covid19ImpactEstimator = (data) => {
   const currentlyInfected = reportedCases * 10;
   const severeImpact = reportedCases * 50;
 
-  const infectionsByRequestedTimeImpact;
-  const infectionsByRequestedTimeServerImpact;
+  let infectionsByRequestedTimeImpact, infectionsByRequestedTimeServerImpact
 
   if (periodType === "days") {
     const totalDays = Math.trunc(timeToElapse / 3);
