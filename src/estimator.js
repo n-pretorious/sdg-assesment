@@ -9,11 +9,11 @@ const covid19ImpactEstimator = (data) => {
     data,
     impact: {
       currentlyInfected,
-      infectionsByRequestedTime: currentlyInfected * (2 ** Math.trunc(timeToElapse / 3))
+      infectionsByRequestedTime: currentlyInfected * (2 ** Math.trunc(timeToElapse / 3)) || currentlyInfected * ((2 ** Math.trunc(7 / 3)) * Math.trunc(timeToElapse / 30)) || currentlyInfected * ((2 ** 10) * Math.trunc(timeToElapse / 30))
     },
     severeImpact: {
       currentlyInfected: severeImpact,
-      infectionsByRequestedTime: severeImpact * (2 ** Math.trunc(timeToElapse / 3))
+      infectionsByRequestedTime: severeImpact * (2 ** Math.trunc(timeToElapse / 3)) || severeImpact * ((2 ** Math.trunc(7 / 3)) * Math.trunc(timeToElapse / 30)) || severeImpact * ((2 ** 10) * Math.trunc(timeToElapse / 30))
     }
   };
 };
