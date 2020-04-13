@@ -57,6 +57,16 @@ const covid19ImpactEstimator = (data) => {
 
     availHosptBedsImpact = availableHospitalForSever - severCasesByRequestedTimeImpact;
     availHospitBedsSeverImpact = availableHospitalForSever - severCasesByRequestedTimeSeverImpact;
+
+    // challenge 3
+    ICUByRequestedTimeImpact = (5 / 100) * infectionsByRequestedTimeImpact;
+    ICUByRequestedTimeSeverImpact = (5 / 100) * infectionsByRequestedTimeImpact;
+
+    ventilatorByRequestedTimeImpact = (2 / 100) * infectionsByRequestedTimeImpact;
+    ventilatorByRequestedTimeSeverImpact = (2 / 100) * infectionsByRequestedTimeImpact;
+
+    dollarsInFlightImpact = infectionsByRequestedTimeImpact * (65 / 100) * 1.5 * requestedTime;
+    dollarsInFlightSeverImpact = infectionsByRequestedTimeServerImpact * (65 / 100) * 1.5 * requestedTime;
   } else {
     // challenge 1
     requestedTime = 2 ** Math.trunc((30 * timeToElapse) / 3);
@@ -69,6 +79,16 @@ const covid19ImpactEstimator = (data) => {
 
     availHosptBedsImpact = availableHospitalForSever - severCasesByRequestedTimeImpact;
     availHospitBedsSeverImpact = availableHospitalForSever - severCasesByRequestedTimeSeverImpact;
+
+    // challenge 3
+    ICUByRequestedTimeImpact = (5 / 100) * infectionsByRequestedTimeImpact;
+    ICUByRequestedTimeSeverImpact = (5 / 100) * infectionsByRequestedTimeImpact;
+
+    ventilatorByRequestedTimeImpact = (2 / 100) * infectionsByRequestedTimeImpact;
+    ventilatorByRequestedTimeSeverImpact = (2 / 100) * infectionsByRequestedTimeImpact;
+
+    dollarsInFlightImpact = infectionsByRequestedTimeImpact * (65 / 100) * 1.5 * requestedTime;
+    dollarsInFlightSeverImpact = infectionsByRequestedTimeServerImpact * (65 / 100) * 1.5 * requestedTime;
   }
 
   return {
