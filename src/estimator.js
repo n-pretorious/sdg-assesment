@@ -9,17 +9,21 @@ const covid19ImpactEstimator = (data) => {
   const severeImpact = reportedCases * 50;
   const availableHospitalForSever = Math.trunc(35 / 100) * totalHospitalBeds;
 
-  let requestedTime;
   const infectionsByRequestedTimeImpact;
   const infectionsByRequestedTimeServerImpact;
+
+  let requestedTime;
+
+  let availHosptBedsImpact;
+  let availHospitBedsSeverImpact;
+
+  let severCasesByRequestedTimeImpact;
+  let severCasesByRequestedTimeSeverImpact;
+
   let hospitalBedsByRequestedTime;
   let severeCasesByRequestedTime;
 
   if (periodType === 'days') {
-    const availHosptBedsImpact;
-    const availHospitBedsSeverImpact;
-    const severCasesByRequestedTimeImpact;
-    const severCasesByRequestedTimeSeverImpact;
 
     // challenge 1
     requestedTime = 2 ** Math.trunc(timeToElapse / 3);
