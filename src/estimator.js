@@ -25,8 +25,8 @@ const covid19ImpactEstimator = (data) => {
   let ICUByRequestedTimeSeverImpact;
   let ventilatorByRequestedTimeImpact;
   let ventilatorByRequestedTimeSeverImpact;
-  let d$Impact;
-  let d$SeverImpact;
+  let dolImpact;
+  let dolSeverImpact;
 
   if (periodType === 'days') {
     // challenge 1
@@ -49,8 +49,8 @@ const covid19ImpactEstimator = (data) => {
     ventilatorByRequestedTimeImpact = 0.02 * infectionsByRequestedTimeImpact;
     ventilatorByRequestedTimeSeverImpact = 0.02 * infectionsByRequestedTimeSeverImpact;
 
-    d$Impact = (infectionsByRequestedTimeImpact * 0.65) * 1.5 * timeToElapse;
-    d$SeverImpact = (infectionsByRequestedTimeSeverImpact * 0.65) * 1.5 * timeToElapse;
+    dolImpact = (infectionsByRequestedTimeImpact * 0.65) * 1.5 * timeToElapse;
+    dolSeverImpact = (infectionsByRequestedTimeSeverImpact * 0.65) * 1.5 * timeToElapse;
   } else if (periodType === 'weeks') {
     // challenge 1
     requestedTime = 2 ** Math.trunc((7 * timeToElapse) / 3);
@@ -88,7 +88,7 @@ const covid19ImpactEstimator = (data) => {
     impact: {
       casesForICUByRequestedTime: Math.trunc(ICUByRequestedTimeImpact),
       casesForVentilatorsByRequestedTime: Math.trunc(ventilatorByRequestedTimeImpact),
-      dollarsInFlight: Math.trunc(d$Impact),
+      dollarsInFlight: Math.trunc(dolImpact),
       hospitalBedsByRequestedTime: Math.trunc(availHosptBedsImpact),
       severeCasesByRequestedTime: Math.trunc(severCasesByRequestedTimeImpact),
       currentlyInfected,
@@ -97,7 +97,7 @@ const covid19ImpactEstimator = (data) => {
     severeImpact: {
       casesForICUByRequestedTime: Math.trunc(ICUByRequestedTimeSeverImpact),
       casesForVentilatorsByRequestedTime: Math.trunc(ventilatorByRequestedTimeSeverImpact),
-      dollarsInFlight: Math.trunc(d$SeverImpact),
+      dollarsInFlight: Math.trunc(dolSeverImpact),
       hospitalBedsByRequestedTime: Math.trunc(availHospitBedsSeverImpact),
       severeCasesByRequestedTime: Math.trunc(severCasesByRequestedTimeSeverImpact),
       currentlyInfected: severeImpact,
