@@ -17,10 +17,10 @@ const covid19ImpactEstimator = (data) => {
   let severCasesByRequestedTimeSeverImpact;
   let ICUByRequestedTimeImpact;
   let ICUByRequestedTimeSeverImpact;
-  // let ventilatorByRequestedTimeImpact;
-  // let ventilatorByRequestedTimeSeverImpact;
-  // let dollarsImpact;
-  // let dollarsSeverImpact;
+  let ventilatorByRequestedTimeImpact;
+  let ventilatorByRequestedTimeSeverImpact;
+  let dollarsImpact;
+  let dollarsSeverImpact;
 
   if (periodType === 'days') {
     // challenge 1
@@ -59,6 +59,14 @@ const covid19ImpactEstimator = (data) => {
     availHospitBedsSeverImpact = availableHospitalForSever - severCasesByRequestedTimeSeverImpact;
 
     // challenge 3
+    ICUByRequestedTimeImpact = (5 / 100) * infectionsByRequestedTimeImpact;
+    ICUByRequestedTimeSeverImpact = (5 / 100) * infectionsByRequestedTimeSeverImpact;
+
+    ventilatorByRequestedTimeImpact = (2 / 100) * infectionsByRequestedTimeImpact;
+    ventilatorByRequestedTimeSeverImpact = (2 / 100) * infectionsByRequestedTimeSeverImpact;
+
+    dollarsImpact = infectionsByRequestedTimeImpact * (65 / 100) * 1.5 * (timeToElapse / 7);
+    dollarsSeverImpact = infectionsByRequestedTimeSeverImpact * (65 / 100) * 1.5 * (timeToElapse / 7);
   } else {
     // challenge 1
     requestedTime = 2 ** Math.trunc((30 * timeToElapse) / 3);
@@ -73,6 +81,14 @@ const covid19ImpactEstimator = (data) => {
     availHospitBedsSeverImpact = availableHospitalForSever - severCasesByRequestedTimeSeverImpact;
 
     // challenge 3
+    ICUByRequestedTimeImpact = (5 / 100) * infectionsByRequestedTimeImpact;
+    ICUByRequestedTimeSeverImpact = (5 / 100) * infectionsByRequestedTimeSeverImpact;
+
+    ventilatorByRequestedTimeImpact = (2 / 100) * infectionsByRequestedTimeImpact;
+    ventilatorByRequestedTimeSeverImpact = (2 / 100) * infectionsByRequestedTimeSeverImpact;
+
+    dollarsImpact = infectionsByRequestedTimeImpact * (65 / 100) * 1.5 * (timeToElapse / 30);
+    dollarsSeverImpact = infectionsByRequestedTimeSeverImpact * (65 / 100) * 1.5 * (timeToElapse / 30);
   }
 
   return {
