@@ -24,7 +24,7 @@ const covid19ImpactEstimator = (data) => {
     infectionsByRequestedTimeServerImpact = severeImpact * requestedTime;
 
     // challenge 2
-    severCasesByRequestedTimeImpact = Math.trunc(15 / 100) * infectionsByRequestedTimeImpact;
+    severCasesByRequestedTimeImpact = (15 / 100) * infectionsByRequestedTimeImpact;
     severCasesByRequestedTimeSeverImpact = (15 / 100) * infectionsByRequestedTimeServerImpact;
 
     availHosptBedsImpact = availableHospitalForSever - severCasesByRequestedTimeImpact;
