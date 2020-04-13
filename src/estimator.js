@@ -25,7 +25,7 @@ const covid19ImpactEstimator = (data) => {
 
     // challenge 2
     severCasesByRequestedTimeImpact = Math.trunc(15 / 100) * infectionsByRequestedTimeImpact;
-    severCasesByRequestedTimeSeverImpact = Math.trunc(15 / 100) * infectionsByRequestedTimeServerImpact;
+    severCasesByRequestedTimeSeverImpact = (15 / 100) * infectionsByRequestedTimeServerImpact;
 
     availHosptBedsImpact = availableHospitalForSever - severCasesByRequestedTimeImpact;
     availHospitBedsSeverImpact = availableHospitalForSever - severCasesByRequestedTimeSeverImpact;
@@ -36,8 +36,8 @@ const covid19ImpactEstimator = (data) => {
     infectionsByRequestedTimeServerImpact = severeImpact * requestedTime;
 
     // challenge 2
-    severCasesByRequestedTimeImpact = Math.trunc(15 / 100) * infectionsByRequestedTimeImpact;
-    severCasesByRequestedTimeSeverImpact = Math.trunc(15 / 100) * infectionsByRequestedTimeServerImpact;
+    severCasesByRequestedTimeImpact = (15 / 100) * infectionsByRequestedTimeImpact;
+    severCasesByRequestedTimeSeverImpact = (15 / 100) * infectionsByRequestedTimeServerImpact;
 
     availHosptBedsImpact = availableHospitalForSever - severCasesByRequestedTimeImpact;
     availHospitBedsSeverImpact = availableHospitalForSever - severCasesByRequestedTimeSeverImpact;
@@ -48,8 +48,8 @@ const covid19ImpactEstimator = (data) => {
     infectionsByRequestedTimeServerImpact = severeImpact * requestedTime;
 
     // challenged 2
-    severCasesByRequestedTimeImpact = Math.trunc(15 / 100) * infectionsByRequestedTimeImpact;
-    severCasesByRequestedTimeSeverImpact = Math.trunc(15 / 100) * infectionsByRequestedTimeServerImpact;
+    severCasesByRequestedTimeImpact = (15 / 100) * infectionsByRequestedTimeImpact;
+    severCasesByRequestedTimeSeverImpact = (15 / 100) * infectionsByRequestedTimeServerImpact;
 
     availHosptBedsImpact = availableHospitalForSever - severCasesByRequestedTimeImpact;
     availHospitBedsSeverImpact = availableHospitalForSever - severCasesByRequestedTimeSeverImpact;
@@ -58,14 +58,14 @@ const covid19ImpactEstimator = (data) => {
   return {
     data,
     impact: {
-      hospitalBedsByRequestedTime: availHosptBedsImpact,
-      severeCasesByRequestedTime: severCasesByRequestedTimeImpact,
+      hospitalBedsByRequestedTime: Math.trunc(availHosptBedsImpact),
+      severeCasesByRequestedTime: Math.trunc(severCasesByRequestedTimeImpact),
       currentlyInfected,
       infectionsByRequestedTime: infectionsByRequestedTimeImpact
     },
     severeImpact: {
-      hospitalBedsByRequestedTime: availHospitBedsSeverImpact,
-      severeCasesByRequestedTime: severCasesByRequestedTimeSeverImpact,
+      hospitalBedsByRequestedTime: Math.trunc(availHospitBedsSeverImpact),
+      severeCasesByRequestedTime: Math.trunc(severCasesByRequestedTimeSeverImpact),
       currentlyInfected: severeImpact,
       infectionsByRequestedTime: infectionsByRequestedTimeServerImpact
     }
