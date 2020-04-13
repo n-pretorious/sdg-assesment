@@ -49,8 +49,8 @@ const covid19ImpactEstimator = (data) => {
     ventilatorByRequestedTimeImpact = 0.02 * infectionsByRequestedTimeImpact;
     ventilatorByRequestedTimeSeverImpact = 0.02 * infectionsByRequestedTimeSeverImpact;
 
-    dolImpact = (infectionsByRequestedTimeImpact * 0.65) * 1.5 * timeToElapse;
-    dolSeverImpact = (infectionsByRequestedTimeSeverImpact * 0.65) * 1.5 * timeToElapse;
+    dolImpact = (infectionsByRequestedTimeImpact * 0.65 * 1.5) / timeToElapse;
+    dolSeverImpact = (infectionsByRequestedTimeSeverImpact * 0.65 * 1.5) / timeToElapse;
   } else if (periodType === 'weeks') {
     // challenge 1
     requestedTime = 2 ** Math.trunc((7 * timeToElapse) / 3);
@@ -72,8 +72,8 @@ const covid19ImpactEstimator = (data) => {
     ventilatorByRequestedTimeImpact = 0.02 * infectionsByRequestedTimeImpact;
     ventilatorByRequestedTimeSeverImpact = 0.02 * infectionsByRequestedTimeSeverImpact;
 
-    dolImpact = (infectionsByRequestedTimeImpact * 0.65) * 1.5 * timeToElapse;
-    dolSeverImpact = (infectionsByRequestedTimeSeverImpact * 0.65) * 1.5 * timeToElapse;
+    dolImpact = (infectionsByRequestedTimeImpact * 0.65 * 1.5) / timeToElapse;
+    dolSeverImpact = (infectionsByRequestedTimeSeverImpact * 0.65 * 1.5) / timeToElapse;
   } else {
     // challenge 1
     requestedTime = 2 ** Math.trunc((30 * timeToElapse) / 3);
@@ -95,8 +95,8 @@ const covid19ImpactEstimator = (data) => {
     ventilatorByRequestedTimeImpact = 0.02 * infectionsByRequestedTimeImpact;
     ventilatorByRequestedTimeSeverImpact = 0.02 * infectionsByRequestedTimeSeverImpact;
 
-    dolImpact = (infectionsByRequestedTimeImpact * 0.65) * 1.5 * timeToElapse;
-    dolSeverImpact = (infectionsByRequestedTimeSeverImpact * 0.65) * 1.5 * timeToElapse;
+    dolImpact = (infectionsByRequestedTimeImpact * 0.65 * 1.5) / timeToElapse;
+    dolSeverImpact = (infectionsByRequestedTimeSeverImpact * 0.65 * 1.5) / timeToElapse;
   }
 
   return {
