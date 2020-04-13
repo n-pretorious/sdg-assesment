@@ -7,7 +7,7 @@ const covid19ImpactEstimator = (data) => {
   } = data;
   const currentlyInfected = reportedCases * 10;
   const severeImpact = reportedCases * 50;
-  const availableHospitalForSever = (35 / 100) * totalHospitalBeds;
+  const availableHospitalForSever = Math.trunc(35 / 100) * totalHospitalBeds;
 
   let requestedTime;
   let infectionsByRequestedTimeImpact;
@@ -24,8 +24,8 @@ const covid19ImpactEstimator = (data) => {
     infectionsByRequestedTimeServerImpact = severeImpact * requestedTime;
 
     // challenge 2
-    severCasesByRequestedTimeImpact = (15 / 100) * infectionsByRequestedTimeImpact;
-    severCasesByRequestedTimeSeverImpact = (15 / 100) * infectionsByRequestedTimeServerImpact;
+    severCasesByRequestedTimeImpact = Math.trunc(15 / 100) * infectionsByRequestedTimeImpact;
+    severCasesByRequestedTimeSeverImpact = Math.trunc(15 / 100) * infectionsByRequestedTimeServerImpact;
 
     availHosptBedsImpact = availableHospitalForSever - severCasesByRequestedTimeImpact;
     availHospitBedsSeverImpact = availableHospitalForSever - severCasesByRequestedTimeSeverImpact;
@@ -36,8 +36,8 @@ const covid19ImpactEstimator = (data) => {
     infectionsByRequestedTimeServerImpact = severeImpact * requestedTime;
 
     // challenge 2
-    severCasesByRequestedTimeImpact = (15 / 100) * infectionsByRequestedTimeImpact;
-    severCasesByRequestedTimeSeverImpact = (15 / 100) * infectionsByRequestedTimeServerImpact;
+    severCasesByRequestedTimeImpact = Math.trunc(15 / 100) * infectionsByRequestedTimeImpact;
+    severCasesByRequestedTimeSeverImpact = Math.trunc(15 / 100) * infectionsByRequestedTimeServerImpact;
 
     availHosptBedsImpact = availableHospitalForSever - severCasesByRequestedTimeImpact;
     availHospitBedsSeverImpact = availableHospitalForSever - severCasesByRequestedTimeSeverImpact;
@@ -48,8 +48,8 @@ const covid19ImpactEstimator = (data) => {
     infectionsByRequestedTimeServerImpact = severeImpact * requestedTime;
 
     // challenged 2
-    severCasesByRequestedTimeImpact = (15 / 100) * infectionsByRequestedTimeImpact;
-    severCasesByRequestedTimeSeverImpact = (15 / 100) * infectionsByRequestedTimeServerImpact;
+    severCasesByRequestedTimeImpact = Math.trunc(15 / 100) * infectionsByRequestedTimeImpact;
+    severCasesByRequestedTimeSeverImpact = Math.trunc(15 / 100) * infectionsByRequestedTimeServerImpact;
 
     availHosptBedsImpact = availableHospitalForSever - severCasesByRequestedTimeImpact;
     availHospitBedsSeverImpact = availableHospitalForSever - severCasesByRequestedTimeSeverImpact;
