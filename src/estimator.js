@@ -25,12 +25,12 @@ const covid19ImpactEstimator = (data) => {
 
     // challenge 2
     severCasesByRequestedTimeImpact = (15 / 100) * infectionsByRequestedTimeImpact;
-    Math.trunc(severCasesByRequestedTimeImpact);
     severCasesByRequestedTimeSeverImpact = (15 / 100) * infectionsByRequestedTimeServerImpact;
-    Math.trunc(severCasesByRequestedTimeSeverImpact);
 
     availHosptBedsImpact = availableHospitalForSever - severCasesByRequestedTimeImpact;
+    Math.trunc(availHosptBedsImpact);
     availHospitBedsSeverImpact = availableHospitalForSever - severCasesByRequestedTimeSeverImpact;
+    Math.trunc(availHospitBedsSeverImpact);
   } else if (periodType === 'weeks') {
     // challenge 1
     requestedTime = 2 ** Math.trunc((7 * timeToElapse) / 3);
@@ -39,12 +39,12 @@ const covid19ImpactEstimator = (data) => {
 
     // challenge 2
     severCasesByRequestedTimeImpact = (15 / 100) * infectionsByRequestedTimeImpact;
-    Math.trunc(severCasesByRequestedTimeImpact);
     severCasesByRequestedTimeSeverImpact = (15 / 100) * infectionsByRequestedTimeServerImpact;
-    Math.trunc(severCasesByRequestedTimeSeverImpact);
 
     availHosptBedsImpact = availableHospitalForSever - severCasesByRequestedTimeImpact;
+    Math.trunc(availHosptBedsImpact);
     availHospitBedsSeverImpact = availableHospitalForSever - severCasesByRequestedTimeSeverImpact;
+    Math.trunc(availHospitBedsSeverImpact);
   } else {
     // challenge 1
     requestedTime = 2 ** Math.trunc((30 * timeToElapse) / 3);
@@ -53,12 +53,12 @@ const covid19ImpactEstimator = (data) => {
 
     // challenged 2
     severCasesByRequestedTimeImpact = (15 / 100) * infectionsByRequestedTimeImpact;
-    Math.trunc(severCasesByRequestedTimeImpact);
     severCasesByRequestedTimeSeverImpact = (15 / 100) * infectionsByRequestedTimeServerImpact;
-    Math.trunc(severCasesByRequestedTimeSeverImpact);
 
     availHosptBedsImpact = availableHospitalForSever - severCasesByRequestedTimeImpact;
+    Math.trunc(availHosptBedsImpact);
     availHospitBedsSeverImpact = availableHospitalForSever - severCasesByRequestedTimeSeverImpact;
+    Math.trunc(availHospitBedsSeverImpact);
   }
 
   return {
