@@ -28,9 +28,7 @@ const covid19ImpactEstimator = (data) => {
     severCasesByRequestedTimeSeverImpact = (15 / 100) * infectionsByRequestedTimeServerImpact;
 
     availHosptBedsImpact = availableHospitalForSever - severCasesByRequestedTimeImpact;
-    Math.trunc(availHosptBedsImpact);
     availHospitBedsSeverImpact = availableHospitalForSever - severCasesByRequestedTimeSeverImpact;
-    Math.trunc(availHospitBedsSeverImpact);
   } else if (periodType === 'weeks') {
     // challenge 1
     requestedTime = 2 ** Math.trunc((7 * timeToElapse) / 3);
@@ -42,9 +40,7 @@ const covid19ImpactEstimator = (data) => {
     severCasesByRequestedTimeSeverImpact = (15 / 100) * infectionsByRequestedTimeServerImpact;
 
     availHosptBedsImpact = availableHospitalForSever - severCasesByRequestedTimeImpact;
-    Math.trunc(availHosptBedsImpact);
     availHospitBedsSeverImpact = availableHospitalForSever - severCasesByRequestedTimeSeverImpact;
-    Math.trunc(availHospitBedsSeverImpact);
   } else {
     // challenge 1
     requestedTime = 2 ** Math.trunc((30 * timeToElapse) / 3);
@@ -56,21 +52,19 @@ const covid19ImpactEstimator = (data) => {
     severCasesByRequestedTimeSeverImpact = (15 / 100) * infectionsByRequestedTimeServerImpact;
 
     availHosptBedsImpact = availableHospitalForSever - severCasesByRequestedTimeImpact;
-    Math.trunc(availHosptBedsImpact);
     availHospitBedsSeverImpact = availableHospitalForSever - severCasesByRequestedTimeSeverImpact;
-    Math.trunc(availHospitBedsSeverImpact);
   }
 
   return {
     data,
     impact: {
-      hospitalBedsByRequestedTime: availHosptBedsImpact,
+      hospitalBedsByRequestedTime: Math.trunc(availHosptBedsImpact),
       severeCasesByRequestedTime: Math.trunc(severCasesByRequestedTimeImpact),
       currentlyInfected,
       infectionsByRequestedTime: infectionsByRequestedTimeImpact
     },
     severeImpact: {
-      hospitalBedsByRequestedTime: availHospitBedsSeverImpact,
+      hospitalBedsByRequestedTime: Math.trunc(availHospitBedsSeverImpact),
       severeCasesByRequestedTime: Math.trunc(severCasesByRequestedTimeSeverImpact),
       currentlyInfected: severeImpact,
       infectionsByRequestedTime: infectionsByRequestedTimeServerImpact
