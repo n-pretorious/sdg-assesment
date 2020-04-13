@@ -65,8 +65,8 @@ const covid19ImpactEstimator = (data) => {
     ventilatorByRequestedTimeImpact = (2 / 100) * infectionsByRequestedTimeImpact;
     ventilatorByRequestedTimeSeverImpact = (2 / 100) * infectionsByRequestedTimeSeverImpact;
 
-    d$Impact = infectionsByRequestedTimeImpact * (65 / 100) * 1.5 * (timeToElapse / 7);
-    d$SeverImpact = infectionsByRequestedTimeSeverImpact * (65 / 100) * 1.5 * (timeToElapse / 7);
+    d$Impact = infectionsByRequestedTimeImpact * (65 / 100) * 1.5 * timeToElapse;
+    d$SeverImpact = infectionsByRequestedTimeSeverImpact * (65 / 100) * 1.5 * timeToElapse;
   } else {
     // challenge 1
     requestedTime = 2 ** Math.trunc((30 * timeToElapse) / 3);
@@ -87,8 +87,8 @@ const covid19ImpactEstimator = (data) => {
     ventilatorByRequestedTimeImpact = (2 / 100) * infectionsByRequestedTimeImpact;
     ventilatorByRequestedTimeSeverImpact = (2 / 100) * infectionsByRequestedTimeSeverImpact;
 
-    d$Impact = infectionsByRequestedTimeImpact * (65 / 100) * 1.5 * (timeToElapse / 30);
-    d$SeverImpact = infectionsByRequestedTimeSeverImpact * (65 / 100) * 1.5 * (timeToElapse / 30);
+    d$Impact = infectionsByRequestedTimeImpact * (65 / 100) * 1.5 * timeToElapse;
+    d$SeverImpact = infectionsByRequestedTimeSeverImpact * (65 / 100) * 1.5 * timeToElapse;
   }
 
   return {
