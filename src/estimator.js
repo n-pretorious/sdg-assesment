@@ -43,8 +43,8 @@ const covid19ImpactEstimator = (data) => {
     ventilatorByRequestedTimeImpact = (2 / 100) * infectionsByRequestedTimeImpact;
     ventilatorByRequestedTimeSeverImpact = (2 / 100) * infectionsByRequestedTimeSeverImpact;
 
-    d$Impact = (infectionsByRequestedTimeImpact * 0.65) * 1.5 * timeToElapse;
-    d$SeverImpact = (infectionsByRequestedTimeSeverImpact * 0.65) * 1.5 * timeToElapse;
+    d$Impact = (infectionsByRequestedTimeImpact * 0.65) * 1.5 * 30;
+    d$SeverImpact = (infectionsByRequestedTimeSeverImpact * 0.65) * 1.5 * 30;
   } else if (periodType === 'weeks') {
     // challenge 1
     requestedTime = 2 ** Math.trunc((7 * timeToElapse) / 3);
