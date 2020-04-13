@@ -21,8 +21,8 @@ const covid19ImpactEstimator = (data) => {
   let severCasesByRequestedTimeSeverImpact;
 
   // variables for challenge 3
-  let IcuByRequestedTimeImpact;
-  let IcuByRequestedTimeSeverImpact;
+  let icuByRequestedTimeImpact;
+  let icuByRequestedTimeSeverImpact;
   let ventilatorByRequestedTimeImpact;
   let ventilatorByRequestedTimeSeverImpact;
   let dolImpact;
@@ -43,8 +43,8 @@ const covid19ImpactEstimator = (data) => {
     availHospitBedsSeverImpact = availableHospitalForSever - severCasesByRequestedTimeSeverImpact;
 
     // challenge 3
-    IcuByRequestedTimeImpact = 0.05 * infectionsByRequestedTimeImpact;
-    IcuByRequestedTimeSeverImpact = 0.05 * infectionsByRequestedTimeSeverImpact;
+    icuByRequestedTimeImpact = 0.05 * infectionsByRequestedTimeImpact;
+    icuByRequestedTimeSeverImpact = 0.05 * infectionsByRequestedTimeSeverImpact;
 
     ventilatorByRequestedTimeImpact = 0.02 * infectionsByRequestedTimeImpact;
     ventilatorByRequestedTimeSeverImpact = 0.02 * infectionsByRequestedTimeSeverImpact;
@@ -66,8 +66,8 @@ const covid19ImpactEstimator = (data) => {
     availHospitBedsSeverImpact = availableHospitalForSever - severCasesByRequestedTimeSeverImpact;
 
     // challenge 3
-    IcuByRequestedTimeImpact = 0.05 * infectionsByRequestedTimeImpact;
-    IcuByRequestedTimeSeverImpact = 0.05 * infectionsByRequestedTimeSeverImpact;
+    icuByRequestedTimeImpact = 0.05 * infectionsByRequestedTimeImpact;
+    icuByRequestedTimeSeverImpact = 0.05 * infectionsByRequestedTimeSeverImpact;
 
     ventilatorByRequestedTimeImpact = 0.02 * infectionsByRequestedTimeImpact;
     ventilatorByRequestedTimeSeverImpact = 0.02 * infectionsByRequestedTimeSeverImpact;
@@ -89,8 +89,8 @@ const covid19ImpactEstimator = (data) => {
     availHospitBedsSeverImpact = availableHospitalForSever - severCasesByRequestedTimeSeverImpact;
 
     // challenge 3
-    IcuByRequestedTimeImpact = 0.05 * infectionsByRequestedTimeImpact;
-    IcuByRequestedTimeSeverImpact = 0.05 * infectionsByRequestedTimeSeverImpact;
+    icuByRequestedTimeImpact = 0.05 * infectionsByRequestedTimeImpact;
+    icuByRequestedTimeSeverImpact = 0.05 * infectionsByRequestedTimeSeverImpact;
 
     ventilatorByRequestedTimeImpact = 0.02 * infectionsByRequestedTimeImpact;
     ventilatorByRequestedTimeSeverImpact = 0.02 * infectionsByRequestedTimeSeverImpact;
@@ -102,7 +102,7 @@ const covid19ImpactEstimator = (data) => {
   return {
     data,
     impact: {
-      casesForICUByRequestedTime: Math.trunc(IcuByRequestedTimeImpact),
+      casesForICUByRequestedTime: Math.trunc(icuByRequestedTimeImpact),
       casesForVentilatorsByRequestedTime: Math.trunc(ventilatorByRequestedTimeImpact),
       dollarsInFlight: Math.trunc(dolImpact),
       hospitalBedsByRequestedTime: Math.trunc(availHosptBedsImpact),
@@ -111,7 +111,7 @@ const covid19ImpactEstimator = (data) => {
       infectionsByRequestedTime: infectionsByRequestedTimeImpact
     },
     severeImpact: {
-      casesForICUByRequestedTime: Math.trunc(IcuByRequestedTimeSeverImpact),
+      casesForICUByRequestedTime: Math.trunc(icuByRequestedTimeSeverImpact),
       casesForVentilatorsByRequestedTime: Math.trunc(ventilatorByRequestedTimeSeverImpact),
       dollarsInFlight: Math.trunc(dolSeverImpact),
       hospitalBedsByRequestedTime: Math.trunc(availHospitBedsSeverImpact),
