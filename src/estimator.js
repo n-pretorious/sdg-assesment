@@ -102,22 +102,28 @@ const covid19ImpactEstimator = (data) => {
   return {
     data,
     impact: {
-      casesForICUByRequestedTime: Math.trunc(icuByRequestedTimeImpact),
-      casesForVentilatorsByRequestedTime: Math.trunc(ventilatorByRequestedTimeImpact),
-      dollarsInFlight: Math.trunc(dolImpact),
+      // challenge 1
+      currentlyInfected,
+      infectionsByRequestedTime: infectionsByRequestedTimeImpact,
+      // challenge 2
       hospitalBedsByRequestedTime: Math.trunc(availHosptBedsImpact),
       severeCasesByRequestedTime: Math.trunc(severCasesByRequestedTimeImpact),
-      currentlyInfected,
-      infectionsByRequestedTime: infectionsByRequestedTimeImpact
+      // challenge 3
+      casesForICUByRequestedTime: Math.trunc(icuByRequestedTimeImpact),
+      casesForVentilatorsByRequestedTime: Math.trunc(ventilatorByRequestedTimeImpact),
+      dollarsInFlight: Math.trunc(dolImpact)
     },
     severeImpact: {
-      casesForICUByRequestedTime: Math.trunc(icuByRequestedTimeSeverImpact),
-      casesForVentilatorsByRequestedTime: Math.trunc(ventilatorByRequestedTimeSeverImpact),
-      dollarsInFlight: Math.trunc(dolSeverImpact),
+      // challenge 1
+      currentlyInfected: severeImpact,
+      infectionsByRequestedTime: infectionsByRequestedTimeSeverImpact,
+      // challenge 2
       hospitalBedsByRequestedTime: Math.trunc(availHospitBedsSeverImpact),
       severeCasesByRequestedTime: Math.trunc(severCasesByRequestedTimeSeverImpact),
-      currentlyInfected: severeImpact,
-      infectionsByRequestedTime: infectionsByRequestedTimeSeverImpact
+      // challenge 3
+      casesForICUByRequestedTime: Math.trunc(icuByRequestedTimeSeverImpact),
+      casesForVentilatorsByRequestedTime: Math.trunc(ventilatorByRequestedTimeSeverImpact),
+      dollarsInFlight: Math.trunc(dolSeverImpact)
     }
   };
 };
