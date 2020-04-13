@@ -15,8 +15,8 @@ const covid19ImpactEstimator = (data) => {
   let availHospitBedsSeverImpact;
   let severCasesByRequestedTimeImpact;
   let severCasesByRequestedTimeSeverImpact;
-  let hospitalBedsByRequestedTime;
-  let severeCasesByRequestedTime;
+  // let hospitalBedsByRequestedTime;
+  // let severeCasesByRequestedTime;
 
   if (periodType === 'days') {
     // challenge 1
@@ -29,9 +29,9 @@ const covid19ImpactEstimator = (data) => {
     severCasesByRequestedTimeSeverImpact = (15 / 100) * infectionsByRequestedTimeServerImpact;
 
     availHosptBedsImpact = availableHospitalForSever - severCasesByRequestedTimeImpact;
-    hospitalBedsByRequestedTime = Math.trunc(availHosptBedsImpact);
+    // hospitalBedsByRequestedTime = Math.trunc(availHosptBedsImpact);
     availHospitBedsSeverImpact = availableHospitalForSever - severCasesByRequestedTimeSeverImpact;
-    severeCasesByRequestedTime = Math.trunc(availHospitBedsSeverImpact);
+    // severeCasesByRequestedTime = Math.trunc(availHospitBedsSeverImpact);
   } else if (periodType === 'weeks') {
     // challenge 1
     requestedTime = 2 ** Math.trunc((7 * timeToElapse) / 3);
@@ -43,9 +43,9 @@ const covid19ImpactEstimator = (data) => {
     severCasesByRequestedTimeSeverImpact = (15 / 100) * infectionsByRequestedTimeServerImpact;
 
     availHosptBedsImpact = availableHospitalForSever - severCasesByRequestedTimeImpact;
-    hospitalBedsByRequestedTime = Math.trunc(availHosptBedsImpact);
+    // hospitalBedsByRequestedTime = Math.trunc(availHosptBedsImpact);
     availHospitBedsSeverImpact = availableHospitalForSever - severCasesByRequestedTimeSeverImpact;
-    severeCasesByRequestedTime = Math.trunc(availHospitBedsSeverImpact);
+    // severeCasesByRequestedTime = Math.trunc(availHospitBedsSeverImpact);
   } else {
     // challenge 1
     requestedTime = 2 ** Math.trunc((30 * timeToElapse) / 3);
@@ -57,22 +57,22 @@ const covid19ImpactEstimator = (data) => {
     severCasesByRequestedTimeSeverImpact = (15 / 100) * infectionsByRequestedTimeServerImpact;
 
     availHosptBedsImpact = availableHospitalForSever - severCasesByRequestedTimeImpact;
-    hospitalBedsByRequestedTime = Math.trunc(availHosptBedsImpact);
+    // hospitalBedsByRequestedTime = Math.trunc(availHosptBedsImpact);
     availHospitBedsSeverImpact = availableHospitalForSever - severCasesByRequestedTimeSeverImpact;
-    severeCasesByRequestedTime = Math.trunc(availHospitBedsSeverImpact);
+    // severeCasesByRequestedTime = Math.trunc(availHospitBedsSeverImpact);
   }
 
   return {
     data,
     impact: {
-      hospitalBedsByRequestedTime,
-      severeCasesByRequestedTime,
+      hospitalBedsByRequestedTime: Math.trunc(availHosptBedsImpact),
+      severeCasesByRequestedTime: Math.trunc(severCasesByRequestedTimeImpact),
       currentlyInfected,
       infectionsByRequestedTime: infectionsByRequestedTimeImpact
     },
     severeImpact: {
-      hospitalBedsByRequestedTime,
-      severeCasesByRequestedTime,
+      hospitalBedsByRequestedTime: Math.trunc(availHospitBedsSeverImpact),
+      severeCasesByRequestedTime: Math.trunc(severCasesByRequestedTimeSeverImpact),
       currentlyInfected: severeImpact,
       infectionsByRequestedTime: infectionsByRequestedTimeServerImpact
     }
