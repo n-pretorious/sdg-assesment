@@ -19,6 +19,7 @@ const covid19ImpactEstimator = (data) => {
   if (periodType === 'days') {
     // challenge 1
     requestedTime = 2 ** Math.trunc(timeToElapse / 3);
+
     infectionsByRequestedTimeImpact = currentlyInfected * requestedTime;
     infectionsByRequestedTimeServerImpact = severeImpact * requestedTime;
 
