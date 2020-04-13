@@ -65,13 +65,13 @@ const covid19ImpactEstimator = (data) => {
     data,
     impact: {
       hospitalBedsByRequestedTime: availHosptBedsImpact,
-      severeCasesByRequestedTime: severCasesByRequestedTimeImpact,
+      severeCasesByRequestedTime: Math.trunc(severCasesByRequestedTimeImpact),
       currentlyInfected,
       infectionsByRequestedTime: infectionsByRequestedTimeImpact
     },
     severeImpact: {
       hospitalBedsByRequestedTime: availHospitBedsSeverImpact,
-      severeCasesByRequestedTime: severCasesByRequestedTimeSeverImpact,
+      severeCasesByRequestedTime: Math.trunc(severCasesByRequestedTimeSeverImpact),
       currentlyInfected: severeImpact,
       infectionsByRequestedTime: infectionsByRequestedTimeServerImpact
     }
