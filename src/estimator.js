@@ -7,14 +7,20 @@ const covid19ImpactEstimator = (data) => {
   } = data;
   const currentlyInfected = reportedCases * 10;
   const severeImpact = reportedCases * 50;
-  const availableHospitalForSever = (35 / 100) * totalHospitalBeds;
+  const availableHospitalForSever = 0.35 * totalHospitalBeds;
+
+  // variables for challenge 1
+  let requestedTime;
   let infectionsByRequestedTimeImpact;
   let infectionsByRequestedTimeSeverImpact;
-  let requestedTime;
+
+  // variables for challenge 2
   let availHosptBedsImpact;
   let availHospitBedsSeverImpact;
   let severCasesByRequestedTimeImpact;
   let severCasesByRequestedTimeSeverImpact;
+
+  // variables for challenge 3
   let ICUByRequestedTimeImpact;
   let ICUByRequestedTimeSeverImpact;
   let ventilatorByRequestedTimeImpact;
@@ -30,65 +36,51 @@ const covid19ImpactEstimator = (data) => {
     infectionsByRequestedTimeSeverImpact = severeImpact * requestedTime;
 
     // challenge 2
-    severCasesByRequestedTimeImpact = (15 / 100) * infectionsByRequestedTimeImpact;
-    severCasesByRequestedTimeSeverImpact = (15 / 100) * infectionsByRequestedTimeSeverImpact;
+    severCasesByRequestedTimeImpact = 0.15 * infectionsByRequestedTimeImpact;
+    severCasesByRequestedTimeSeverImpact = 0.15 * infectionsByRequestedTimeSeverImpact;
 
     availHosptBedsImpact = availableHospitalForSever - severCasesByRequestedTimeImpact;
     availHospitBedsSeverImpact = availableHospitalForSever - severCasesByRequestedTimeSeverImpact;
 
     // challenge 3
     ICUByRequestedTimeImpact = 0.05 * infectionsByRequestedTimeImpact;
-    ICUByRequestedTimeSeverImpact = (5 / 100) * infectionsByRequestedTimeSeverImpact;
+    ICUByRequestedTimeSeverImpact = 0.05 * infectionsByRequestedTimeSeverImpact;
 
     ventilatorByRequestedTimeImpact = 0.02 * infectionsByRequestedTimeImpact;
-    ventilatorByRequestedTimeSeverImpact = (2 / 100) * infectionsByRequestedTimeSeverImpact;
+    ventilatorByRequestedTimeSeverImpact = 0.02 * infectionsByRequestedTimeSeverImpact;
 
-    d$Impact = (infectionsByRequestedTimeImpact * 0.65) * 1.5 * 30;
-    d$SeverImpact = (infectionsByRequestedTimeSeverImpact * 0.65) * 1.5 * 30;
+    d$Impact = (infectionsByRequestedTimeImpact * 0.65) * 1.5 * timeToElapse;
+    d$SeverImpact = (infectionsByRequestedTimeSeverImpact * 0.65) * 1.5 * timeToElapse;
   } else if (periodType === 'weeks') {
     // challenge 1
     requestedTime = 2 ** Math.trunc((7 * timeToElapse) / 3);
+
     infectionsByRequestedTimeImpact = currentlyInfected * requestedTime;
     infectionsByRequestedTimeSeverImpact = severeImpact * requestedTime;
 
     // challenge 2
-    severCasesByRequestedTimeImpact = (15 / 100) * infectionsByRequestedTimeImpact;
-    severCasesByRequestedTimeSeverImpact = (15 / 100) * infectionsByRequestedTimeSeverImpact;
+    severCasesByRequestedTimeImpact = 0.15 * infectionsByRequestedTimeImpact;
+    severCasesByRequestedTimeSeverImpact = 0.15 * infectionsByRequestedTimeSeverImpact;
 
     availHosptBedsImpact = availableHospitalForSever - severCasesByRequestedTimeImpact;
     availHospitBedsSeverImpact = availableHospitalForSever - severCasesByRequestedTimeSeverImpact;
 
     // challenge 3
-    ICUByRequestedTimeImpact = (5 / 100) * infectionsByRequestedTimeImpact;
-    ICUByRequestedTimeSeverImpact = (5 / 100) * infectionsByRequestedTimeSeverImpact;
-
-    ventilatorByRequestedTimeImpact = (2 / 100) * infectionsByRequestedTimeImpact;
-    ventilatorByRequestedTimeSeverImpact = (2 / 100) * infectionsByRequestedTimeSeverImpact;
-
-    d$Impact = (infectionsByRequestedTimeImpact * 0.65) * 1.5 * timeToElapse;
-    d$SeverImpact = (infectionsByRequestedTimeSeverImpact * 0.65) * 1.5 * timeToElapse;
   } else {
     // challenge 1
     requestedTime = 2 ** Math.trunc((30 * timeToElapse) / 3);
+
     infectionsByRequestedTimeImpact = currentlyInfected * requestedTime;
     infectionsByRequestedTimeSeverImpact = severeImpact * requestedTime;
 
     // challenged 2
-    severCasesByRequestedTimeImpact = (15 / 100) * infectionsByRequestedTimeImpact;
-    severCasesByRequestedTimeSeverImpact = (15 / 100) * infectionsByRequestedTimeSeverImpact;
+    severCasesByRequestedTimeImpact = 0.15 * infectionsByRequestedTimeImpact;
+    severCasesByRequestedTimeSeverImpact = 0.15 * infectionsByRequestedTimeSeverImpact;
 
     availHosptBedsImpact = availableHospitalForSever - severCasesByRequestedTimeImpact;
     availHospitBedsSeverImpact = availableHospitalForSever - severCasesByRequestedTimeSeverImpact;
 
     // challenge 3
-    ICUByRequestedTimeImpact = (5 / 100) * infectionsByRequestedTimeImpact;
-    ICUByRequestedTimeSeverImpact = (5 / 100) * infectionsByRequestedTimeSeverImpact;
-
-    ventilatorByRequestedTimeImpact = (2 / 100) * infectionsByRequestedTimeImpact;
-    ventilatorByRequestedTimeSeverImpact = (2 / 100) * infectionsByRequestedTimeSeverImpact;
-
-    d$Impact = (infectionsByRequestedTimeImpact * 0.65) * 1.5 * timeToElapse;
-    d$SeverImpact = (infectionsByRequestedTimeSeverImpact * 0.65) * 1.5 * timeToElapse;
   }
 
   return {
