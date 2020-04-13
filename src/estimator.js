@@ -7,7 +7,7 @@ const covid19ImpactEstimator = (data) => {
   } = data;
   const currentlyInfected = reportedCases * 10;
   const severeImpact = reportedCases * 50;
-  const availableHospitalForSever = Math.trunc((35 / 100) * totalHospitalBeds);
+  const availableHospitalForSever = (35 / 100) * totalHospitalBeds;
   let infectionsByRequestedTimeImpact;
   let infectionsByRequestedTimeServerImpact;
   let requestedTime;
