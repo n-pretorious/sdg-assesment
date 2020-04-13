@@ -14,12 +14,12 @@ const covid19ImpactEstimator = (data) => {
     infectionsByRequestedTimeImpact = currentlyInfected * requestedTime;
     infectionsByRequestedTimeServerImpact = severeImpact * requestedTime;
   } else if (periodType === 'weeks') {
-    requestedTime = 2 ** Math.trunc(7 * timeToElapse / 3);
+    requestedTime = 2 ** Math.trunc((7 * timeToElapse) / 3);
 
     infectionsByRequestedTimeImpact = currentlyInfected * requestedTime;
     infectionsByRequestedTimeServerImpact = severeImpact * requestedTime;
   } else {
-    requestedTime = 2 ** Math.trunc(30 * timeToElapse / 3);
+    requestedTime = 2 ** Math.trunc((30 * timeToElapse) / 3);
 
     infectionsByRequestedTimeImpact = currentlyInfected * requestedTime;
     infectionsByRequestedTimeServerImpact = severeImpact * requestedTime;
