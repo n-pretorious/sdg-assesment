@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const xml = require('xml');
+import {covid19ImpactEstimator} from '../src/estimator';
 
 let data = [];
 
