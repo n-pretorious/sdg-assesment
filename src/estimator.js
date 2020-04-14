@@ -4,7 +4,7 @@ const covid19ImpactEstimator = (data) => {
     periodType,
     timeToElapse,
     totalHospitalBeds,
-    region: { avgDailyIncomeInUSD, avgDailyIncomePopulation}
+    region: { avgDailyIncomeInUSD,avgDailyIncomePopulation }
   } = data;
 
   const currentlyInfected = reportedCases * 10;
