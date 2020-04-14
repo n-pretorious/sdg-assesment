@@ -33,10 +33,10 @@ const covid19ImpactEstimator = (data) => {
   const availBedsSeverImpact = availHospitalBeds - severCasesByRequestedTimeSeverImpact;
 
   // challenge 3
-  const icuByRequestedTimeImpact = 0.05 * infectionsByRequestedTimeSeverImpact;
+  const icuByRequestedTimeImpact = 0.05 * infectionsByRequestedTimeImpact;
   const icuByRequestedTimeSeverImpact = 0.05 * infectionsByRequestedTimeSeverImpact;
 
-  const ventilatorByRequestedTimeImpact = 0.02 * infectionsByRequestedTimeSeverImpact;
+  const ventilatorByRequestedTimeImpact = 0.02 * infectionsByRequestedTimeImpact;
   const ventilatorByRequestedTimeSeverImpact = 0.02 * infectionsByRequestedTimeSeverImpact;
 
   const dolImpact = (infectionsByRequestedTimeImpact * 0.65 * 1.5) / timeToElapse;
