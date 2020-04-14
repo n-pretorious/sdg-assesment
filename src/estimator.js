@@ -8,7 +8,7 @@ const covid19ImpactEstimator = (data) => {
 
   const currentlyInfected = reportedCases * 10;
   const severeImpact = reportedCases * 50;
-  const availableHospitalForSever = 0.35 * totalHospitalBeds;
+  const availHospitalBeds = 0.35 * totalHospitalBeds;
 
   // variables for challenge 1
   let requestedTime;
@@ -29,11 +29,11 @@ const covid19ImpactEstimator = (data) => {
   const severCasesByRequestedTimeImpact = 0.15 * infectionsByRequestedTimeImpact;
   const severCasesByRequestedTimeSeverImpact = 0.15 * infectionsByRequestedTimeSeverImpact;
 
-  const availHosptBedsImpact = availableHospitalForSever - severCasesByRequestedTimeImpact;
-  const availHospitBedsSeverImpact = availableHospitalForSever - severCasesByRequestedTimeSeverImpact;
+  const availHosptBedsImpact = availHospitalBeds - severCasesByRequestedTimeImpact;
+  const availHospitBedsSeverImpact = availHospitalBeds - severCasesByRequestedTimeSeverImpact;
 
   // challenge 3
-  // const icuByRequestedTimeImpact = 0.05 * infectionsByRequestedTimeSeverImpact; //You are supposed to use server impcated numbers, not impcated numbers. This should be infectionsByRequestedTimeSeverImpact
+  // const icuByRequestedTimeImpact = 0.05 * infectionsByRequestedTimeSeverImpact;
   // const icuByRequestedTimeSeverImpact = 0.05 * infectionsByRequestedTimeSeverImpact;
 
   // const ventilatorByRequestedTimeImpact = 0.02 * infectionsByRequestedTimeSeverImpact;
@@ -50,7 +50,7 @@ const covid19ImpactEstimator = (data) => {
       infectionsByRequestedTime: infectionsByRequestedTimeImpact,
       // challenge 2
       hospitalBedsByRequestedTime: Math.trunc(availHosptBedsImpact),
-      severeCasesByRequestedTime: Math.trunc(severCasesByRequestedTimeImpact),
+      severeCasesByRequestedTime: Math.trunc(severCasesByRequestedTimeImpact)
       // challenge 3
       // casesForICUByRequestedTime: Math.trunc(icuByRequestedTimeImpact),
       // casesForVentilatorsByRequestedTime: Math.trunc(ventilatorByRequestedTimeImpact),
@@ -62,7 +62,7 @@ const covid19ImpactEstimator = (data) => {
       infectionsByRequestedTime: infectionsByRequestedTimeSeverImpact,
       // challenge 2
       hospitalBedsByRequestedTime: Math.trunc(availHospitBedsSeverImpact),
-      severeCasesByRequestedTime: Math.trunc(severCasesByRequestedTimeSeverImpact),
+      severeCasesByRequestedTime: Math.trunc(severCasesByRequestedTimeSeverImpact)
       // challenge 3
       // casesForICUByRequestedTime: Math.trunc(icuByRequestedTimeSeverImpact),
       // casesForVentilatorsByRequestedTime: Math.trunc(ventilatorByRequestedTimeSeverImpact),
