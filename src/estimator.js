@@ -4,7 +4,10 @@ const covid19ImpactEstimator = (data) => {
     periodType,
     timeToElapse,
     totalHospitalBeds,
-    region: { avgDailyIncomeInUSD, avgDailyIncomePopulation }
+    region: {
+      avgIncome: avgDailyIncomeInUSD,
+      avgPop: avgDailyIncomePopulation
+    }
   } = data;
 
   const currentlyInfected = reportedCases * 10;
@@ -40,8 +43,6 @@ const covid19ImpactEstimator = (data) => {
   const ventilatorByRequestedTimeImpact = 0.02 * infectionsByReqTimeImpct;
   const ventilatorByRequestedTimeSeverImpact = 0.02 * infectionsByReqTimeSeverImpct;
 
-  const avgIncome = avgDailyIncomeInUSD;
-  const avgPop = avgDailyIncomePopulation;
   const dolImpact = (infectionsByReqTimeImpct * avgIncome * avgPop) / timeToElapse;
   const dolSeverImpact = (infectionsByReqTimeSeverImpct * avgIncome * avgPop) / timeToElapse;
 
