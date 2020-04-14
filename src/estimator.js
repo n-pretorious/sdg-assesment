@@ -10,19 +10,25 @@ const covid19ImpactEstimator = (data) => {
     }
   } = data;
 
+  const avgIncome = avgDailyIncomeInUSD;
+  const avgPop = avgDailyIncomePopulation;
+
   const currentlyInfected = reportedCases * 10;
   const severeImpact = reportedCases * 50;
   const availHospitalBeds = 0.35 * totalHospitalBeds;
 
   // variables for challenge 1
   let requestedTime;
+  let period;
 
   if (periodType === 'days') {
     requestedTime = 2 ** Math.trunc(timeToElapse / 3);
   } else if (periodType === 'weeks') {
     requestedTime = 2 ** Math.trunc((7 * timeToElapse) / 3);
+    period = timeToElapse * 7;
   } else {
     requestedTime = 2 ** Math.trunc((30 * timeToElapse) / 3);
+    period = timeToElapse * 30;
   }
 
   // challenge 1
@@ -43,10 +49,8 @@ const covid19ImpactEstimator = (data) => {
   const ventilatorByRequestedTimeImpact = 0.02 * infectionsByReqTimeImpct;
   const ventilatorByRequestedTimeSeverImpact = 0.02 * infectionsByReqTimeSeverImpct;
 
-  const avgIncome = avgDailyIncomeInUSD;
-  const avgPop = avgDailyIncomePopulation;
-  const dolImpact = (infectionsByReqTimeImpct * avgIncome * avgPop) / timeToElapse;
-  const dolSeverImpact = (infectionsByReqTimeSeverImpct * avgIncome * avgPop) / timeToElapse;
+  const dolImpact = (infectionsByReqTimeImpct * avgIncome * avgPop) / period;
+  const dolSeverImpact = (infectionsByReqTimeSeverImpct * avgIncome * avgPop) / period;
 
   return {
     data,
